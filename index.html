@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+  <link rel="icon" type="image/gif/png/svg" href="img/logo.svg" />
+  <title>Mega Holz | 3D Planer | CARYS WPC</title>
+
+  <!-- fa fa fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- main style -->
+  <link rel="stylesheet" type="text/css" href="styles/style.css" />
+
+  <!-- nouislider cdn -->
+  <script src="scripts/dependencies/nouislider.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="styles/nouislider.min.css" />
+  <!-- wNumb.js -->
+  <script src="scripts/dependencies/wNumb.min.js"></script>
+
+  <!-- lootie -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.6.4/lottie_svg.min.js"></script>
+
+  <!-- jsPDF -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
+
+  <!-- Babylon.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.6.2/dat.gui.min.js"></script>
+  <script src="https://assets.babylonjs.com/generated/Assets.js"></script>
+  <script src="https://preview.babylonjs.com/ammo.js"></script>
+  <script src="https://preview.babylonjs.com/cannon.js"></script>
+  <script src="https://preview.babylonjs.com/Oimo.js"></script>
+  <script src="https://preview.babylonjs.com/earcut.min.js"></script>
+  <script src="https://preview.babylonjs.com/babylon.js"></script>
+  <script src="https://preview.babylonjs.com/materialsLibrary/babylonjs.materials.min.js"></script>
+  <script src="https://preview.babylonjs.com/proceduralTexturesLibrary/babylonjs.proceduralTextures.min.js"></script>
+  <script src="https://preview.babylonjs.com/postProcessesLibrary/babylonjs.postProcess.min.js"></script>
+  <script src="https://preview.babylonjs.com/loaders/babylonjs.loaders.js"></script>
+  <script src="https://preview.babylonjs.com/serializers/babylonjs.serializers.min.js"></script>
+  <script src="https://preview.babylonjs.com/gui/babylon.gui.min.js"></script>
+  <script src="https://preview.babylonjs.com/inspector/babylon.inspector.bundle.js"></script>
+
+  <!--  for cart -->
+  <link rel="stylesheet" type="text/css" href="styles/foundation.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300&amp;subset=latin-ext" rel="stylesheet"
+    type="text/css">
+  <link rel="stylesheet" type="text/css" href="styles/cartStyle.css">
+  <script type="text/javascript" src="scripts/dependencies/jquery-2.1.0.min.js"></script>
+
+</head>
+
+<body>
+
+  <!-- HTML -->
+  <div class="configuratorContainer">
+
+    <!-- HEADING -->
+    <div class="heading-logo-container"></div>
+    <div class="heading">
+      <div class="new-start">
+        <div class="get-back">
+          <div id="get-back-arrow">&#8678;</div>
+          <div class="get-back-fence-name">CARYS WPC</div>
+        </div>
+        <div class="new-fence">
+          <a href="index.html">
+            <div id="new-fence-but">
+              NEUSTART
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="heading-menu">
+        <div id="settings-but" class="heading-menu-buttons active-menu-buttons">
+          <i class="fa fa-gear" id="fa-gear"></i>
+          <div class="heading-menu-title">Anpassen</div>
+        </div>
+        <div id="price-but" class="heading-menu-buttons">
+          <i class="fa fa-calculator"></i>
+          <div class="heading-menu-title">Preis/Warenkorb</div>
+        </div>
+
+        <div id="videos-but" class="heading-menu-buttons">
+          <i class="fa fa-play-circle-o"></i>
+          <div class="heading-menu-title">Anleitung</div>
+        </div>
+        <div id="screenshot-but" class="heading-menu-buttons">
+          <i class="fa fa-camera"></i>
+          <div class="heading-menu-title">Screenshot</div>
+        </div>
+        <div id="2dplan-but" class="heading-menu-buttons">
+          <i class="fa fa-map"></i>
+          <div class="heading-menu-title">2D Foundation Plan</div>
+        </div>
+      </div>
+
+
+    </div>
+
+    <!-- MODAL FADE CONTAINER ZA OBAVESTENJA -->
+    <div class="modal-fade" id="modal-fade" style="display: none">
+      <!-- MODAL ON STURMANKER -->
+      <div class="modal-content" id="on-sturmanker" style="display: none;">
+        <div class="modal-header">
+          <h4 style="flex: 90%; margin-left: 30px;">Sturamnker</h4>
+          <div class="modal-close-btn-container">
+            <div class="modal-close-btn">&#10005</div>
+          </div>
+        </div>
+        <div class="modal-body">
+          <div class="modal-body-img" style="background-image: url('img/sturmanker.webp');"></div>
+          <div class="modal-body-text">zum Löschen anklicken
+          </div>
+        </div>
+        <div class="modal-footer"><button class="modal-ver-sch-btn"
+            style="margin: 0 auto; cursor: pointer;">Verstaden</button></div>
+      </div>
+      <!-- MODAL VIDEOS -->
+      <div class="modal-content" id="modal-videos" style="display: none;">
+        <div class="modal-header">
+          <h4 style="flex: 90%; margin-left: 30px;">Anleitung</h4>
+          <div class="modal-close-btn-container">
+            <div class="modal-close-btn">&#10005</div>
+          </div>
+        </div>
+        <div class="modal-body" style="display: block;">
+          <div class="modal-videos-part">Navigieren mit Schaltflächen</div>
+          <div class="modal-videos-part">Navigieren mit einer Maus / Smartphone / Tablet</div>
+          <div class="modal-videos-part">Navigieren mit der Tastatur</div>
+          <div class="modal-videos-part">Produkte hinzufügen</div>
+          <div class="modal-videos-part">Produkte austauschen</div>
+          <div class="modal-videos-part" style="border: none;">Konfiguration neu starten</div>
+        </div>
+        <div class="modal-footer"><button class="modal-ver-sch-btn"
+            style="margin: 0 auto; cursor: pointer;">Schließen</button>
+        </div>
+      </div>
+
+      <div class="modal-content" id="modal-video">
+        <div class="modal-close-btn-container-video">
+          <div class="modal-close-btn">&#10005</div>
+        </div>
+        <video id='modal-video-video' controls loop="true" src="videos/5.webm" type="video/webm">
+          Your browser does not support the video tag.
+        </video>
+
+      </div>
+
+      <!-- END OF MODAL -->
+    </div>
+
+    <!-- CONFIGURATOR -->
+    <div class="configurator-section">
+
+      <!-- SIDE ACCESORIES -->
+      <div class="side-accesories" id="side-accesories" style="display: none;">
+        <div class="side-accesories-title">
+          <div class="accTitle" style="margin-left: 5%;">ausgewählter Zaun</div>
+          <div class="settings-close-btn-container">
+            <div class="side-accesories-close-btn">&#10005</div>
+          </div>
+        </div>
+        <!-- DELETE HOUSWAND ACCESORIE -->
+        <div class="set-part-container del-acc" style="height: 50px; cursor: default; display: none;">
+          <!-- first part -->
+          <div class="set-part-direkte-hauswand-acc">
+            <div class="side-img-direkte-hauswand-container-acc">
+              <div class="side-img-direkte-hauswand-acc" style="background-image:
+                  url('img/wall-bar.svg');"></div>
+            </div>
+            <div class="part-set-part-title">Montageprofil</div>
+            <div class="delete-img-accesories-container" style="flex: 10%">
+              <div class="delete-img-accesories"></div>
+            </div>
+          </div>
+        </div>
+        <!-- DELETE STURMANKER -->
+        <div class="set-part-container del-acc" style="height: 50px; cursor: default; display: none;">
+          <!-- first part -->
+          <div class="set-part-sturmanker-acc">
+            <div class="side-img-sturmanker-container-acc">
+              <div class="side-img-sturmanker-acc" style="background-image:
+                          url('img/sturmanker1.svg');"></div>
+            </div>
+            <div class="part-set-part-title">Sturmanker</div>
+            <div class="delete-img-accesories-container" style="flex: 10%">
+              <div class="delete-img-accesories"></div>
+            </div>
+          </div>
+        </div>
+        <!-- MAIN FENCE PART ACCESOAR -->
+        <div id="add-fence-acc" style="display: none;">
+          <div class="set-part-container" style="height: 50px; cursor: default;">
+            <!-- first part -->
+            <div id="set-part-fence-acc-del">
+              <div class="side-img-fence-acc-del-container">
+                <div class="side-img-fence-acc-del" style="background-image:
+                    url('img/deleteRoundNo.png');"></div>
+              </div>
+              <div style="flex: 80%;">Der erste Zaun</div>
+            </div>
+          </div>
+
+          <div id="carys-fence-acc">
+            <!-- change fence -->
+            <div class="set-part-container" style="height: auto; margin-bottom: 20px;">
+              <!-- first part -->
+              <div class="set-part-design-inlays-1 set-activnes-change-fence active-text-color">
+                <div class="side-img-design-inlays-container">
+                  <div class="side-img-design-inlays" style="background-image:
+                  url('img/z-180x180.svg');"></div>
+                </div>
+                <div class="part-set-part-title" style="font-size: 15px">CARYS WPC-Rahmenzaun<br>180x180cm</div>
+                <div class="part-is-active">&#10003</div>
+              </div>
+              <!-- second part -->
+              <div class="set-part-design-inlays-1 set-activnes-change-fence">
+                <div class="side-img-design-inlays-container">
+                  <div class="side-img-design-inlays" style="background-image:
+                  url('img/z-90x180.svg');"></div>
+                </div>
+                <div class="part-set-part-title" style="font-size: 15px">CARYS WPC-Rahmenzaun<br>90x180cm</div>
+                <div class="part-is-active"></div>
+              </div>
+              <!-- third part -->
+              <div class="set-part-design-inlays-1 set-activnes-change-fence">
+                <div class="side-img-design-inlays-container">
+                  <div class="side-img-design-inlays" style="background-image:
+                  url('img/z-90x180T.svg');"></div>
+                </div>
+                <div class="part-set-part-title" style="font-size: 14px">CARYS WPC-Rahmenzaun,
+                  Schrägelement<br>90x180/90cm</div>
+                <div class="part-is-active"></div>
+              </div>
+              <!-- fourth part -->
+              <div class="set-part-design-inlays-1 set-activnes-change-fence">
+                <div class="side-img-design-inlays-container">
+                  <div class="side-img-design-inlays" style="background-image:
+                  url('img/z-90x180T.svg');transform: scaleX(-1); -webkit-transform: scaleX(-1);"></div>
+                </div>
+                <div class="part-set-part-title" style="font-size: 14px">CARYS WPC-Rahmenzaun,
+                  Schrägelement<br>90x180/90cm</div>
+                <div class="part-is-active"></div>
+              </div>
+              <!-- fifth part -->
+              <div class="set-part-design-inlays-1 set-activnes-change-fence">
+                <div class="side-img-design-inlays-container">
+                  <div class="side-img-design-inlays" style="background-image:
+                  url('img/z-180x90.svg');"></div>
+                </div>
+                <div class="part-set-part-title" style="font-size: 15px">CARYS WPC-Rahmenzaun<br>180x90cm</div>
+                <div class="part-is-active"></div>
+              </div>
+              <!-- sixth part -->
+              <div class="set-part-design-inlays-1 set-activnes-change-fence">
+                <div class="side-img-design-inlays-container">
+                  <div class="side-img-design-inlays" style="background-image:
+                  url('img/z-100x180.svg');"></div>
+                </div>
+                <div class="part-set-part-title" style="font-size: 15px">CARYS WPC-Rahmenzaun, Einzeltor<br>100x180cm
+                </div>
+                <div class="part-is-active"></div>
+              </div>
+            </div>
+
+            <!-- button to change all fences -->
+            <div id="changeAllFences" class="not-clicked"
+              style="width: 50%; margin: 30px 25% 25% 100px; background-color: #aabeff;">
+              <div class="title-set-part-title">Für alle übernehmen</div>
+            </div>
+            <!-- ///////////////////////////////////////////////////////////// -->
+          </div><!-- end easy fence acc -->
+          <!-- <div id="gardo-fence-acc"> -->
+          <!-- <div style="background-color: red; width: 100px; height: 100px"></div> -->
+          <!-- change fence -->
+          <!-- <div class="set-part-container" style="height: auto; margin-bottom: 20px;"> -->
+          <!-- change to normal -->
+          <!-- <div class="set-part-design-inlays-1 set-activnes-change-fence-gardo active-text-color-gardo-change">
+                <div class="side-img-design-inlays-container">
+                  <div class="side-img-design-inlays" style="background-image: url('img/gardo-16.svg');"></div>
+                </div>
+                <div class="part-set-part-title">GARDO Füllprofil, 16 Stk.<br>180x176cm</div>
+                <div class="part-is-active">&#10003</div>
+              </div> -->
+
+          <!-- change to half -->
+          <!-- <div class="set-part-design-inlays-1 set-activnes-change-fence-gardo">
+                <div class="side-img-design-inlays-container">
+                  <div class="side-img-design-inlays" style="background-image: url('img/gardo-8.svg');"></div>
+                </div>
+                <div class="part-set-part-title">GARDO Füllprofil, 8 Stk.<br>180x89cm</div>
+                <div class="part-is-active"></div>
+              </div> -->
+
+          <!-- change to rank -->
+          <!-- <div class="set-part-design-inlays-1 set-activnes-change-fence-gardo">
+                <div class="side-img-design-inlays-container">
+                  <div class="side-img-design-inlays" style="background-image: url('img/gardo-inlay.svg');"></div>
+                </div>
+                <div class="part-set-part-title">GARDO Füllprofil, 14 Stk. + Rankelement<br>180x176cm</div>
+                <div class="part-is-active"></div>
+              </div>
+            </div> -->
+          <!-- fence height -->
+          <!-- <div class="set-post-height"
+              style="width: 90%; height: 40px; margin-left: 5%; display: flex; align-items: center; text-align: center; border-radius: 5px; border: 1px solid #aabeff">
+              <div id="h76" style="flex: 50%; display: flex; cursor: pointer;">
+                <div style="flex: 80%;">H = 176cm</div>
+                <div style="flex: 20%;">&#10003</div>
+              </div>
+              <div id="h85" style="flex: 50%; display: flex; cursor: pointer;">
+                <div style="flex: 80%;">H = 185cm</div>
+                <div style="flex: 20%;"></div>
+              </div>
+            </div> -->
+
+          <!-- button to change all fences -->
+          <!-- <div id="changeAllFences" class="not-clicked"
+            style="width: 50%; margin: 30px 25% 25% 100px; background-color: #aabeff;">
+            <div class="title-set-part-title">Für alle übernehmen</div>
+          </div> -->
+
+
+          <!-- </div> -->
+          <!-- end gardo fence acc -->
+        </div>
+
+
+        <!-- SIDE WHEN ADD NEW FENCE ARROW IS CLICKED -->
+        <!-- add new fence -->
+        <div id="addNewFenceToSide" style="height: auto; display: none; margin-bottom: 100px;">
+          <!-- first part -->
+          <div class="set-part-container" style="height: auto;">
+            <div class="set-part-design-inlays-1" id="carys180/180">
+              <div class="side-img-design-inlays-container">
+                <div class="side-img-design-inlays" style="background-image:
+                url('img/z-180x180.svg');"></div>
+              </div>
+              <div class="part-set-part-title" style="font-size: 15px">CARYS WPC-Rahmenzaun<br>180x180cm</div>
+              <div class="part-is-active"></div>
+            </div>
+            <!-- second part -->
+            <div class="set-part-design-inlays-1" id="carys90/180">
+              <div class="side-img-design-inlays-container">
+                <div class="side-img-design-inlays" style="background-image:
+                url('img/z-90x180.svg');"></div>
+              </div>
+              <div class="part-set-part-title" style="font-size: 15px">CARYS WPC-Rahmenzaun<br>90x180cm</div>
+              <div class="part-is-active"></div>
+            </div>
+            <!-- third part -->
+            <div class="set-part-design-inlays-1" id="carys90/180KosiDesni">
+              <div class="side-img-design-inlays-container">
+                <div class="side-img-design-inlays" style="background-image:
+                url('img/z-90x180T.svg');"></div>
+              </div>
+              <div class="part-set-part-title" style="font-size: 14px">CARYS WPC-Rahmenzaun,
+                Schrägelement<br>90x180/90cm</div>
+              <div class="part-is-active"></div>
+            </div>
+            <!-- fourth part -->
+            <div class="set-part-design-inlays-1" id="carys90/180KosiLevi">
+              <div class="side-img-design-inlays-container">
+                <div class="side-img-design-inlays" style="background-image:
+                url('img/z-90x180T.svg');transform: scaleX(-1); -webkit-transform: scaleX(-1);"></div>
+              </div>
+              <div class="part-set-part-title" style="font-size: 14px">CARYS WPC-Rahmenzaun,
+                Schrägelement<br>90x180/90cm</div>
+              <div class="part-is-active"></div>
+            </div>
+            <!-- fifth part -->
+            <div class="set-part-design-inlays-1" id="carys180/90">
+              <div class="side-img-design-inlays-container">
+                <div class="side-img-design-inlays" style="background-image:
+                url('img/z-180x90.svg');"></div>
+              </div>
+              <div class="part-set-part-title" style="font-size: 15px">CARYS WPC-Rahmenzaun<br>180x90cm</div>
+              <div class="part-is-active"></div>
+            </div>
+            <!-- sixth part -->
+            <div class="set-part-design-inlays-1" id="carys100/180kapija">
+              <div class="side-img-design-inlays-container">
+                <div class="side-img-design-inlays" style="background-image:
+                url('img/z-100x180.svg');"></div>
+              </div>
+              <div class="part-set-part-title" style="font-size: 15px">CARYS WPC-Rahmenzaun, Einzeltor<br>100x180cm
+              </div>
+              <div class="part-is-active"></div>
+            </div>
+          </div>
+
+          <!-- //////////////////////////////////COMBINABLE FENCE////////////////////////////////////////////////////////////////////////////////////////// -->
+          <!-- ADD NEW FENCE - COMBINE FENCE  -->
+          <!-- <div class="combined-fences-title not-clicked" id="addNewCombineFenceTitle"> -->
+          <!-- <div class="set-num"></div> -->
+          <!-- <div class="title-set-part-title">Combinable Fences</div>
+            <div class="title-is-active">+</div>
+          </div> -->
+          <!-- PARTS CONTAINER -->
+          <!-- <div class="set-part-container" id="combineFenceContainer"> -->
+          <!-- add new gardo fence -->
+          <!-- <div class="set-part-design-inlays-1" id="new-fence-gardo">
+              <div class="color-badge-set-part">
+                <div class="color-badge" style="background-image: url('img/larche.jpg');"></div>
+              </div>
+              <div class="part-set-part-title">Gardo Fence</div> -->
+          <!-- <div class="part-is-active">&#10003</div> -->
+          <!-- </div>
+          </div> -->
+
+        </div><!-- END OF add new fence -->
+
+        <!-- EDIT POST -->
+        <div id="editPost" style="height: auto;display: none; margin-bottom: 100px;">
+          <div class="set-part-container" style="height: auto;">
+            <!-- first part -->
+            <div class="set-part-befe-pfosten-single active-text-color-single-pfosten">
+              <div class="side-img-befe-pfosten-container">
+                <div class="side-img-befe-pfosten" style="background-image:
+                  url('img/pfostentraeeger.svg');"></div>
+              </div>
+              <div class="part-set-part-title">Pfosten L=190cm<br>für
+                Pfostenträger</div>
+              <div class="part-is-active">&#10003</div>
+            </div>
+            <!-- second part -->
+            <div class="set-part-befe-pfosten-single">
+              <div class="side-img-befe-pfosten-container">
+                <div class="side-img-befe-pfosten" style="background-image:
+                  url('img/alu-pfosten-2.svg');"></div>
+              </div>
+              <div class="part-set-part-title">Pfosten L=235cm<br>zum
+                Einbetonieren</div>
+              <div class="part-is-active"></div>
+            </div>
+            <!-- third part -->
+            <div class="set-part-befe-pfosten-single">
+              <div class="side-img-befe-pfosten-container">
+                <div class="side-img-befe-pfosten" style="background-image:
+                  url('img/alu-pfosten-2.svg');"></div>
+              </div>
+              <div class="part-set-part-title" style="font-size: 15px;">Pfosten
+                L=295cm<br>zum Einbetonieren bei besonders
+                starkem Gefälle</div>
+              <div class="part-is-active"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- end of accesories -->
+      </div>
+      <!-- SETTINGS -->
+      <div class="settings">
+
+        <!-- settings title -->
+        <div id="setTitleSec" class="settings-title">
+          <div class="gearSettings" style="flex: 10%;"><i class="fa fa-gear" style="font-size:35px;"></i>
+          </div>
+          <div class="setTitle" style="flex: 80%;">Anpassen</div>
+          <div class=" settings-close-btn-container">
+
+            <div class="settings-close-btn">&#10005</div>
+          </div>
+        </div>
+
+        <!-- 1 -->
+        <!-- MAIN FARBE  -->
+        <div class="set-part-click-title not-clicked">
+          <div class="set-num"></div>
+          <div class="title-set-part-title">Farbe WPC-Steckprofil</div>
+          <div class="title-is-active">+</div>
+        </div>
+        <!-- PARTS CONTAINER -->
+        <div class="set-part-container">
+          <!-- first part -->
+          <div class="set-part-main-farbe active-text-color">
+            <div class="color-badge-set-part">
+              <div class="color-badge"></div>
+            </div>
+            <div class="part-set-part-title">WPC grau</div>
+            <div class="part-is-active">&#10003</div>
+          </div>
+        </div>
+
+        <!-- 2 -->
+        <!-- FARBE PFOSTEN  -->
+        <div class="set-part-click-title not-clicked">
+          <div class="set-num"></div>
+          <div class="title-set-part-title">Farbe Pfosten</div>
+          <div class="title-is-active">+</div>
+        </div>
+        <!-- PARTS CONTAINER -->
+        <div class="set-part-container">
+          <!-- first part -->
+          <div class="set-part-farbe-pfosten">
+            <div class="color-badge-set-part">
+              <div class="color-badge"></div>
+            </div>
+            <div class="part-set-part-title">silber</div>
+            <div class="part-is-active"></div>
+          </div>
+          <!-- second part -->
+          <div class="set-part-farbe-pfosten active-text-color">
+            <div class="color-badge-set-part">
+              <div class="color-badge"></div>
+            </div>
+            <div class="part-set-part-title">anthrazit</div>
+            <div class="part-is-active">&#10003</div>
+          </div>
+        </div>
+
+        <!-- 3 -->
+        <!-- DUBINSKI STUB Befestigungsmethode Pfosten  -->
+        <div class="set-part-click-title not-clicked">
+          <div class="set-num"></div>
+          <div class="title-set-part-title">Befestigungsmethode Pfosten</div>
+          <div class="title-is-active">+</div>
+        </div>
+        <!-- PARTS CONTAINER -->
+        <div class="set-part-container">
+          <!-- first part -->
+          <div class="set-part-befe-pfosten active-text-color">
+            <div class="side-img-befe-pfosten-container">
+              <div class="side-img-befe-pfosten" style="background-image:
+                  url('img/pfostentraeeger.svg');"></div>
+            </div>
+            <div class="part-set-part-title">Pfosten L=190cm<br>für
+              Pfostenträger</div>
+            <div class="part-is-active">&#10003</div>
+          </div>
+          <!-- second part -->
+          <div class="set-part-befe-pfosten">
+            <div class="side-img-befe-pfosten-container">
+              <div class="side-img-befe-pfosten" style="background-image:
+                  url('img/alu-pfosten-2.svg');"></div>
+            </div>
+            <div class="part-set-part-title">Pfosten L=235cm<br>zum
+              Einbetonieren</div>
+            <div class="part-is-active"></div>
+          </div>
+          <!-- third part -->
+          <div class="set-part-befe-pfosten">
+            <div class="side-img-befe-pfosten-container">
+              <div class="side-img-befe-pfosten" style="background-image:
+                  url('img/alu-pfosten-2.svg');"></div>
+            </div>
+            <div class="part-set-part-title" style="font-size: 15px;">Pfosten
+              L=295cm<br>zum Einbetonieren bei besonders
+              starkem Gefälle</div>
+            <div class="part-is-active"></div>
+          </div>
+        </div>
+
+        <!-- 4 -->
+        <!-- DRZAC SA STRANE STURMANKER -->
+        <div class="set-part-click-title not-clicked">
+          <div class="set-num"></div>
+          <div class="title-set-part-title">Sturmanker (optional)</div>
+          <div class="title-is-active">+</div>
+        </div>
+        <!-- PARTS CONTAINER -->
+        <div class="set-part-container">
+          <!-- first part -->
+          <div class="set-part-sturmanker">
+            <div class="side-img-sturmanker-container">
+              <div class="side-img-sturmanker" style="background-image:
+                  url('img/sturmanker1.svg');"></div>
+            </div>
+            <div class="part-set-part-title" style="font-size: 15px;">Sturmanker<br>
+              Kann nicht zusammen mit LED montiert werden</div>
+            <div class="part-is-active"></div>
+          </div>
+          <!-- second part -->
+          <div class="set-part-sturmanker">
+            <div class="sturmanker-container">
+              <div class="sturmanker-con" style="border-right: 1px solid
+                  gray;">
+                <div></div>
+                <div class="part-set-part-title" style="font-size: 15px;">Rückseite</div>
+                <div class="part-is-active"></div>
+              </div>
+              <div class="sturmanker-con active-text-color" style="border-right: 1px solid gray; flex: 24%;">
+                <div></div>
+                <div class="part-set-part-title" style="font-size: 15px;">Ohne</div>
+                <div class="part-is-active">&#10003</div>
+              </div>
+              <div class="sturmanker-con">
+                <div></div>
+                <div class="part-set-part-title" style="font-size: 15px;">Vorderseite</div>
+                <div class="part-is-active"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end setings div-->
+      <!-- END OF SETTINGS -->
+
+    </div><!-- end configurator section div-->
+
+
+
+    <!-- CART -->
+    <div id="cart-fade"></div>
+    <div id="cart-main-section">
+      <!-- cart title -->
+      <div class="cart-title">
+        <div style="flex: 10%;"><i class="fa fa-calculator" style="font-size: 35px;"></i>
+        </div>
+        <div class="setTitle" style="flex: 80%;">Preis/Warenkorb</div>
+        <div class="cart-close-btn-container">
+          <div id="cart-close-btn">&#10005</div>
+        </div>
+      </div>
+      <!-- cart section -->
+      <div id="cart-section">
+        <section class="add-pad-small" style="margin-bottom: 100px; overflow-y: auto;">
+
+          <div class="grid-container">
+            <form method="post">
+              <div id="SmartCart" class="scMain" style="visibility: visible;">
+
+                <input type="hidden" pimage="icons/z-180x180.svg" uid="z-180x180-G" pcategory="CARYS WPC"
+                  pprice="299.00" fprice="299,00" pname="CARYS WPC-Rahmenzaun, grau, Rahmen silber"
+                  pid="52110 / 5900236521100 / 33853" pabm="180x180cm" lic="0">
+                <input type="hidden" pimage="icons/z-90x180.svg" uid="z-90x180-G" pcategory="CARYS WPC" pprice="159.00"
+                  fprice="159,00" pname="CARYS WPC-Rahmenzaun, grau, Rahmen silber" pid="52111 / 5900236521117 / 33854"
+                  pabm="90x180cm" lic="0">
+                <input type="hidden" pimage="icons/z-90x180T.svg" uid="z-90x180T-G" pcategory="CARYS WPC"
+                  pprice="159.00" fprice="159,00" pname="CARYS WPC-Rahmenzaun, grau, Rahmen silber, Schrägelement"
+                  pid="52112 / 5900236521124 / 33855" pabm="90x180/90cm" lic="0">
+                <input type="hidden" pimage="icons/z-180x90.svg" uid="z-180x90-G" pcategory="CARYS WPC" pprice="159.00"
+                  fprice="159,00" pname="CARYS WPC-Rahmenzaun, grau, Rahmen silber" pid="52113 / 5900236521131 / 33856"
+                  pabm="180x90cm" lic="0">
+                <input type="hidden" pimage="icons/z-100x180.svg" uid="z-100x180-G" pcategory="CARYS WPC"
+                  pprice="399.00" fprice="399,00" pname="CARYS WPC-Rahmenzaun, grau, Rahmen silber, Einzeltor"
+                  pid="52114 / 5900236521148 / 33857" pabm="100x180cm" lic="0">
+                <input type="hidden" pimage="icons/pfosten-7x7.svg" uid="s-295-S" pcategory="BASIC ALU-Pfosten"
+                  pprice="79.99" fprice="79,99" pname="BASIC ALU-Pfosten, silber" pid="52039 / 5900236520394 / 33926"
+                  pabm="7x7x295cm" lic="0">
+                <input type="hidden" pimage="icons/pfosten-7x7.svg" uid="s-235-S" pcategory="BASIC ALU-Pfosten"
+                  pprice="59.99" fprice="59,99" pname="BASIC ALU-Pfosten, silber" pid="52040 / 5900236520400 / 33929"
+                  pabm="7x7x235cm" lic="0">
+                <input type="hidden" pimage="icons/pfosten-7x7.svg" uid="s-190-S" pcategory="BASIC ALU-Pfosten"
+                  pprice="49.99" fprice="49,99" pname="BASIC ALU-Pfosten, silber" pid="52041 / 5900236520417 / 33930"
+                  pabm="7x7x190cm" lic="0">
+                <input type="hidden" pimage="icons/pfosten-7x7.svg" uid="s-150-S" pcategory="BASIC ALU-Pfosten"
+                  pprice="39.99" fprice="39,99" pname="BASIC ALU-Pfosten, silber" pid="52042 / 5900236520424 / 33931"
+                  pabm="7x7x150cm" lic="0">
+                <input type="hidden" pimage="icons/pfosten-7x7.svg" uid="s-100-S" pcategory="BASIC ALU-Pfosten"
+                  pprice="29.99" fprice="29,99" pname="BASIC ALU-Pfosten, silber" pid="52043 / 5900236520431 / 33938"
+                  pabm="7x7x100cm" lic="0">
+                <input type="hidden" pimage="icons/pfosten-7x7.svg" uid="s-235-A" pcategory="BASIC ALU-Pfosten"
+                  pprice="59.99" fprice="59,99" pname="BASIC ALU-Pfosten, anthrazit" pid="52045 / 5900236520455 / 90557"
+                  pabm="7x7x235cm" lic="0">
+                <input type="hidden" pimage="icons/pfosten-7x7.svg" uid="s-190-A" pcategory="BASIC ALU-Pfosten"
+                  pprice="49.99" fprice="49,99" pname="BASIC ALU-Pfosten, anthrazit" pid="52046 / 5900236520462 / 90558"
+                  pabm="7x7x190cm" lic="0">
+                <input type="hidden" pimage="icons/pfosten-7x7.svg" uid="s-150-A" pcategory="BASIC ALU-Pfosten"
+                  pprice="39.99" fprice="39,99" pname="BASIC ALU-Pfosten, anthrazit" pid="52047 / 5900236520479 / 90559"
+                  pabm="7x7x150cm" lic="0">
+                <input type="hidden" pimage="icons/pfosten-7x7.svg" uid="s-235T-S" pcategory="BASIC ALU-Pfosten"
+                  pprice="169.00" fprice="169,00" pname="BASIC ALU-Tor-Pfosten, 2er-Set, silber"
+                  pid="52059 / 5900236520592 / 33944" pabm="7x7x235cm" lic="0">
+                <input type="hidden" pimage="icons/pfosten-7x7.svg" uid="s-190T-S" pcategory="BASIC ALU-Pfosten"
+                  pprice="149.00" fprice="149,00" pname="BASIC ALU-Tor-Pfosten, 2er-Set, silber, inkl. Pfostenträger"
+                  pid="52060 / 5900236520608 / 33939" pabm="7x7x190cm" lic="0">
+                <input type="hidden" pimage="icons/pfostentraeeger.svg" uid="kotwa" pcategory="BASIC ALU-Pfosten"
+                  pprice="29.99" fprice="29,99" pname="BASIC Pfostenträger 70" pid="52079 / 5900236520790 / 33940"
+                  pabm="11x17x40cm" lic="0">
+                <input type="hidden" pimage="icons/carys-zaunhalter.svg" uid="carys-zaunhalter"
+                  pcategory="BASIC ALU-Pfosten" pprice="17.99" fprice="17,99"
+                  pname="CARYS Zaunhalter für verdeckte Montage V2A inkl. Schrauben" pid="52099 / 5900236520998 / 33945"
+                  pabm="6er-Set" lic="0">
+                <input type="hidden" pimage="icons/sturmanker1.svg" uid="sturmanker-S" pcategory="BASIC ALU-Pfosten"
+                  pprice="29.99" fprice="29,99" pname="TORNADO Sturmanker, silber, inkl. Montageset"
+                  pid="53122 / 5900236531222 / 6088" pabm="5x30x50cm" lic="0">
+                <input type="hidden" pimage="icons/sturmanker1.svg" uid="sturmanker-A" pcategory="BASIC ALU-Pfosten"
+                  pprice="29.99" fprice="29,99" pname="TORNADO Sturmanker, anthrazit, inkl. Montageset"
+                  pid="53123 / 5900236531239 / 90480" pabm="5x30x50cm" lic="0">
+
+                <!-- ///////////////////////////////////////////////////////////////////// -->
+              </div>
+            </form>
+
+          </div>
+          <!-- cart button -->
+          <a id="link" href="https://mega-holz.de/warenkorb/" style="float: right; margin-right: 20px;">
+            <button class="button">Weiter
+            </button>
+          </a>
+        </section>
+      </div>
+    </div>
+    <!-- END OF CART -->
+
+    <!-- CANVAS -->
+    <canvas id="renderCanvas">
+
+    </canvas>
+    <div id="customLoadingScreenDiv"
+      style="width: 100vw; height: 100vh; background-color: rgb(255, 255, 255); position: absolute; z-index: 100;">
+      <img class="loading-img" src="img/logo.svg">
+      <div id="lottieWraper" style="width: 50px; height: 50px; position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);"></div>
+    </div>
+    <!-- CANVAS FOR 2D PLAN -->
+    <canvas id="canvas-plan" style="background-color: white; position: absolute; top: 50px; display: none;"></canvas>
+  </div>
+
+  <!-- SCRIPTS -->
+  <!-- smart cart -->
+  <!-- <script type="text/javascript" src="scripts/smartCartEdited.js"></script> -->
+  <!-- foundation.js -->
+  <script src="scripts/dependencies/foundation.min.js"></script>
+  <!-- main script file -->
+  <script src="index.js"></script>
+  <script src="scripts/lightsBabylon.js"></script>
+  <script src="scripts/addSkyBox.js"></script>
+  <script src="scripts/createMainPost.js"></script>
+  <script src="scripts/createNewFence.js"></script>
+  <script src="scripts/createCyrisKapija.js"></script>
+  <script src="scripts/setSmallerFenceSize.js"></script>
+  <!-- <script src="scripts/gardo/loadGardoFence.js"></script>
+  <script src="scripts/gardo/changeGardo.js"></script> -->
+  <script src="scripts/cameraTargetMesh.js"></script>
+  <script src="scripts/foundationVisibleFunction.js"></script>
+  <script src="scripts/intesectionFunction.js"></script>
+  <script src="scripts/intersectArrowSignsFence.js"></script>
+  <script src="scripts/postIntersaction.js"></script>
+  <script src="scripts/addDefaultMaterial.js"></script>
+  <script src="scripts/createDirecteHauswand.js"></script>
+  <script src="scripts/removeSideAccesories.js"></script>
+  <script src="scripts/onHover.js"></script>
+  <script src="scripts/loadCart.js"></script>
+  <script src="scripts/populateCartPrices.js"></script>
+  <script src="scripts/draw2dPlan.js"></script>
+  <script src="scripts/endOfBabylon.js"></script>
+
+</body>
+
+</html>
