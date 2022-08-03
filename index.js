@@ -1673,8 +1673,8 @@ var createScene = function () {
         scene
       );
 
-      foundationVordStart.position = new BABYLON.Vector3(0, -0.13, -0.01);
-      foundationVordStart.rotation.x = Math.PI / 2;
+      foundationVordStart.position = new BABYLON.Vector3(0, 0.13, 0.01);
+      foundationVordStart.rotation.x = -Math.PI / 2;
       foundationVordStart.material = concreteMat;
       foundationVordStart.parent = rightRoot0;
       foundationStartsVord.push(foundationVordStart);
@@ -1687,7 +1687,7 @@ var createScene = function () {
         scene
       );
       foundationVord.material = foundationMat;
-      foundationVord.position = new BABYLON.Vector3(0, -0.13, -0.261);
+      foundationVord.position = new BABYLON.Vector3(0, 0.13, 0.261);
       foundationVord.parent = rightRoot0;
       foundationsVord.push(foundationVord);
       foundationVord.isVisible = false;
@@ -1711,8 +1711,8 @@ var createScene = function () {
         { width: 0.4, height: 0.7 },
         scene
       );
-      foundationRuckStart.position = new BABYLON.Vector3(0, 0.13, -0.01);
-      foundationRuckStart.rotation.x = Math.PI / 2;
+      foundationRuckStart.position = new BABYLON.Vector3(0, -0.13, 0.01);
+      foundationRuckStart.rotation.x = -Math.PI / 2;
       foundationRuckStart.material = concreteMat;
       foundationRuckStart.parent = rightRoot0;
       foundationStartsRuck.push(foundationRuckStart);
@@ -1725,7 +1725,7 @@ var createScene = function () {
         scene
       );
       foundationRuck.material = foundationMat;
-      foundationRuck.position = new BABYLON.Vector3(0, 0.13, -0.261);
+      foundationRuck.position = new BABYLON.Vector3(0, -0.13, 0.261);
       foundationRuck.parent = rightRoot0;
       foundationsRuck.push(foundationRuck);
       foundationRuck.isVisible = false;
@@ -2985,9 +2985,9 @@ var createScene = function () {
     }
   }
 
-  //   //1 SET MAIN FARBE FUNCIONALITY
-  // let mainFarbeParts = document.getElementsByClassName("set-part-main-farbe");
-  //   setPartsAndconf(mainFarbeParts, false, fenceBoardsColors);
+  //1 SET MAIN FARBE FUNCIONALITY
+  let mainFarbeParts = document.getElementsByClassName("set-part-main-farbe");
+  setPartsAndconf(mainFarbeParts, false, fenceBoardsColors);
   // setActivnes(mainFarbeParts, 1, "active-text-color");
 
   //2 SET FARBE PFOSTEN
@@ -3094,8 +3094,8 @@ var createScene = function () {
       foundationsRuck[i].scaling.z = d;
 
       foundations[i].position.y = e;
-      foundationsVord[i].position.z = e;
-      foundationsRuck[i].position.z = e;
+      foundationsVord[i].position.z = -e;
+      foundationsRuck[i].position.z = -e;
     }
     foundations[0].scaling.y = d;
     foundations[0].position.y = e;
@@ -3161,8 +3161,8 @@ var createScene = function () {
         foundationsRuck[i + 1].scaling.z = d;
 
         foundations[i + 1].position.y = -e;
-        foundationsVord[i + 1].position.z = -e;
-        foundationsRuck[i + 1].position.z = -e;
+        foundationsVord[i + 1].position.z = e;
+        foundationsRuck[i + 1].position.z = e;
       }
     }
     if (leftPosts[0].material.id == "selectedMat") {
