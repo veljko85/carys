@@ -1910,9 +1910,9 @@ var createScene = function () {
 
       carys18090parts.push(carys18090);
 
-      let vrataPrednjaLeva = new Array(
-        result.meshes[46],
-        result.meshes[41],
+      let vrataPrednjaDesna = new Array(
+        result.meshes[44],
+        result.meshes[43],
         result.meshes[39],
         result.meshes[40],
         result.meshes[35],
@@ -1921,9 +1921,9 @@ var createScene = function () {
         result.meshes[38]
       );
 
-      let vrataPrednjaDesna = new Array(
-        result.meshes[44],
-        result.meshes[43],
+      let vrataPrednjaLeva = new Array(
+        result.meshes[46],
+        result.meshes[41],
         result.meshes[39],
         result.meshes[40],
         result.meshes[35],
@@ -1955,8 +1955,8 @@ var createScene = function () {
       );
 
       let kapijaVersion = [
-        vrataPrednjaLeva,
         vrataPrednjaDesna,
+        vrataPrednjaLeva,
         vrataZadnjaLeva,
         vrataZadnjaDesna,
       ];
