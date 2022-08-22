@@ -797,7 +797,8 @@ function loadCart(
               fencePostMat,
               addFenceSings,
               preckes,
-              preckeMat
+              preckeMat,
+              sturmankersRuckseite
             );
             //open cart sections
             cartFade.style.display = "block";
@@ -858,35 +859,36 @@ function loadCart(
               }
             }
             for (let i = 1; i < allPosts.length; i++) {
-              if (allPosts[i].scaling.x == 1) {
-                if (allPosts[i].material.diffuseColor.r > 0.3) {
-                  if (allPosts[i].scaling.z > 1.4) {
-                    post295SilberCart += 1;
-                  } else if (
-                    allPosts[i].scaling.z > 1 &&
-                    allPosts[i].scaling.z < 1.4
-                  ) {
-                    post235SilberCart += 1;
-                  } else if (allPosts[i].scaling.z < 1.1) {
-                    post190SilberCart += 1;
-                  }
-                } else {
-                  if (allPosts[i].scaling.z > 1.4) {
-                    post295AnthCart += 1;
-                  } else if (
-                    allPosts[i].scaling.z > 1 &&
-                    allPosts[i].scaling.z < 1.4
-                  ) {
-                    post235AnthCart += 1;
-                  } else if (allPosts[i].scaling.z < 1.1) {
-                    post190AnthCart += 1;
+              if (allPosts[i].isVisible) {
+                if (allPosts[i].scaling.x == 1) {
+                  if (allPosts[i].material.diffuseColor.r > 0.3) {
+                    if (allPosts[i].scaling.z > 1.4) {
+                      post295SilberCart += 1;
+                    } else if (
+                      allPosts[i].scaling.z > 1 &&
+                      allPosts[i].scaling.z < 1.4
+                    ) {
+                      post235SilberCart += 1;
+                    } else if (allPosts[i].scaling.z < 1.1) {
+                      post190SilberCart += 1;
+                    }
+                  } else {
+                    if (allPosts[i].scaling.z > 1.4) {
+                      post295AnthCart += 1;
+                    } else if (
+                      allPosts[i].scaling.z > 1 &&
+                      allPosts[i].scaling.z < 1.4
+                    ) {
+                      post235AnthCart += 1;
+                    } else if (allPosts[i].scaling.z < 1.1) {
+                      post190AnthCart += 1;
+                    }
                   }
                 }
               }
             }
             //poulate roots
             let rootsCart = 0;
-            console.log(roots[0].isVisible);
             if (roots[0].isVisible) rootsCart += 1;
             if (roots[2].isVisible) rootsCart += 1;
             for (let i = 4; i < roots.length; i++) {

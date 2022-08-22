@@ -748,7 +748,8 @@ var createScene = function () {
                 fencePostMat,
                 addFenceSings,
                 preckes,
-                preckeMat
+                preckeMat,
+                sturmankersRuckseite
               );
               activeFence = false;
               leftPost.material = selectedMat;
@@ -1155,7 +1156,8 @@ var createScene = function () {
                   fencePostMat,
                   addFenceSings,
                   preckes,
-                  preckeMat
+                  preckeMat,
+                  sturmankersRuckseite
                 );
                 result.meshes[1].material =
                   result.meshes[15].material =
@@ -1200,7 +1202,8 @@ var createScene = function () {
                   fencePostMat,
                   addFenceSings,
                   preckes,
-                  preckeMat
+                  preckeMat,
+                  sturmankersRuckseite
                 );
                 singsRotate[activeFence].isVisible = false;
                 // singsDel.forEach((elm) => {
@@ -1347,7 +1350,8 @@ var createScene = function () {
                 fencePostMat,
                 addFenceSings,
                 preckes,
-                preckeMat
+                preckeMat,
+                sturmankersRuckseite
               );
               rightPost.material = selectedMat;
               sideAccesories.style.display = "block";
@@ -1405,7 +1409,8 @@ var createScene = function () {
                 fencePostMat,
                 addFenceSings,
                 preckes,
-                preckeMat
+                preckeMat,
+                sturmankersRuckseite
               );
             }
           }
@@ -1754,38 +1759,6 @@ var createScene = function () {
       fakeBacks.push(fakeBack);
       fakeBack.isVisible = false;
 
-      //SET NEW FENCE SAME POST SIZE AS THE OTHER
-      if (befePfostenSize == 1) {
-        rightPost.scaling.z = 1.2;
-        rightPost.position.y = 0.7717;
-        rightRoot0.isVisible = false;
-        rightRoot1.isVisible = false;
-
-        foundationRight.scaling.y = 1;
-        foundationVord.scaling.z = 1;
-        foundationRuck.scaling.z = 1;
-
-        foundationRight.position.y = -0.261;
-        foundationVord.position.z = -0.261;
-        foundationRuck.position.z = -0.261;
-      }
-      // setbefePfosten(1.2, 0.7717, false, 1, -0.5 / 2);
-      if (befePfostenSize == 2) {
-        rightPost.scaling.z = 1.475;
-        rightPost.position.y = 0.511;
-        rightRoot0.isVisible = false;
-        rightRoot1.isVisible = false;
-
-        foundationRight.scaling.y = 1.8;
-        foundationVord.scaling.z = 1.8;
-        foundationRuck.scaling.z = 1.8;
-
-        foundationRight.position.y = -0.461;
-        foundationVord.position.z = -0.461;
-        foundationRuck.position.z = -0.461;
-      }
-      // setbefePfosten(1.475, 0.511, false, 1.8, -0.9 / 2);
-
       //INTERSECTION FUNCTION
       intersectionFunction(
         fakeFronts,
@@ -2054,6 +2027,46 @@ var createScene = function () {
           type
         );
       }
+
+      //SET NEW FENCE SAME POST SIZE AS THE OTHER
+      if (befePfostenSize == 1) {
+        rightPost.scaling.z = 1.2;
+        rightPost.position.y = 0.7717;
+        if (type == "carys180/90" || type == "carys90/180KosiDesni") {
+          rightPost.scaling.z = 0.724;
+          rightPost.position.y = 0.3119;
+        }
+        rightRoot0.isVisible = false;
+        rightRoot1.isVisible = false;
+
+        foundationRight.scaling.y = 1;
+        foundationVord.scaling.z = 1;
+        foundationRuck.scaling.z = 1;
+
+        foundationRight.position.y = -0.261;
+        foundationVord.position.z = -0.261;
+        foundationRuck.position.z = -0.261;
+      }
+      // setbefePfosten(1.2, 0.7717, false, 1, -0.5 / 2);
+      if (befePfostenSize == 2) {
+        rightPost.scaling.z = 1.475;
+        rightPost.position.y = 0.511;
+        if (type == "carys180/90" || type == "carys90/180KosiDesni") {
+          rightPost.scaling.z = 0.999;
+          rightPost.position.y = 0.053;
+        }
+        rightRoot0.isVisible = false;
+        rightRoot1.isVisible = false;
+
+        foundationRight.scaling.y = 1.8;
+        foundationVord.scaling.z = 1.8;
+        foundationRuck.scaling.z = 1.8;
+
+        foundationRight.position.y = -0.461;
+        foundationVord.position.z = -0.461;
+        foundationRuck.position.z = -0.461;
+      }
+      // setbefePfosten(1.475, 0.511, false, 1.8, -0.9 / 2);
 
       //CREATE OBJ FOR FENCE
       fenceIdCount += 1;
@@ -2604,7 +2617,8 @@ var createScene = function () {
               fencePostMat,
               addFenceSings,
               preckes,
-              preckeMat
+              preckeMat,
+              sturmankersRuckseite
             );
             newFenceForwardSigns[i].isVisible = true;
             newFenceRightSigns[i].isVisible = true;
@@ -2660,7 +2674,8 @@ var createScene = function () {
               fencePostMat,
               addFenceSings,
               preckes,
-              preckeMat
+              preckeMat,
+              sturmankersRuckseite
             );
             newFenceForwardSigns[i].isVisible = true;
             newFenceRightSigns[i].isVisible = true;
@@ -2716,7 +2731,8 @@ var createScene = function () {
               fencePostMat,
               addFenceSings,
               preckes,
-              preckeMat
+              preckeMat,
+              sturmankersRuckseite
             );
             newFenceForwardSigns[i].isVisible = true;
             newFenceRightSigns[i].isVisible = true;
@@ -2772,7 +2788,8 @@ var createScene = function () {
               fencePostMat,
               addFenceSings,
               preckes,
-              preckeMat
+              preckeMat,
+              sturmankersRuckseite
             );
             newFenceForwardSigns[i].isVisible = true;
             newFenceRightSigns[i].isVisible = true;
@@ -2847,7 +2864,8 @@ var createScene = function () {
             fencePostMat,
             addFenceSings,
             preckes,
-            preckeMat
+            preckeMat,
+            sturmankersRuckseite
           );
           addNewFenceMeshRightMain.isVisible = true;
           addNewFenceMeshLeftMain.isVisible = true;
@@ -2897,7 +2915,8 @@ var createScene = function () {
             fencePostMat,
             addFenceSings,
             preckes,
-            preckeMat
+            preckeMat,
+            sturmankersRuckseite
           );
           addNewFenceMeshRightMain.isVisible = true;
           addNewFenceMeshLeftMain.isVisible = true;
@@ -3013,7 +3032,10 @@ var createScene = function () {
     // roots.forEach((elm) => {
     //   elm.isVisible = c;
     // });
-    if (fencesArr[0].type == "carys180/90") {
+    if (
+      fencesArr[0].type == "carys180/90" ||
+      fencesArr[0].type == "carys90/180KosiLevi"
+    ) {
       leftPosts[0].scaling.z = f;
       leftPosts[0].position.y = g;
     } else {
@@ -3021,11 +3043,17 @@ var createScene = function () {
       leftPosts[0].position.y = b;
     }
     for (let i = 0; i < fencesArr.length; i++) {
-      if (fencesArr[i].type == "carys180/90") {
+      if (
+        fencesArr[i].type == "carys180/90" ||
+        fencesArr[i].type == "carys90/180KosiDesni"
+      ) {
         //////////////
         let childTypeSetPhosten = 0;
         for (let j = 0; j < fencesArr[i].children.length; j++) {
-          if (fencesArr[fencesArr[i].children[j]].type != "carys180/90") {
+          if (
+            fencesArr[fencesArr[i].children[j]].type != "carys180/90" &&
+            fencesArr[fencesArr[i].children[j]].type != "carys90/180KosiLevi"
+          ) {
             childTypeSetPhosten += 1;
           }
         }
@@ -3131,11 +3159,17 @@ var createScene = function () {
   function changeSinglePostSize(a, b, c, d, e, f, g) {
     for (let i = 0; i < rightPosts.length; i++) {
       if (rightPosts[i].material.id == "selectedMat") {
-        if (fencesArr[i].type == "carys180/90") {
+        if (
+          fencesArr[i].type == "carys180/90" ||
+          fencesArr[i].type == "carys90/180KosiDesni"
+        ) {
           //////////////
           let childTypeSetPhosten = 0;
           for (let j = 0; j < fencesArr[i].children.length; j++) {
-            if (fencesArr[fencesArr[i].children[j]].type != "carys180/90") {
+            if (
+              fencesArr[fencesArr[i].children[j]].type != "carys180/90" &&
+              fencesArr[fencesArr[i].children[j]].type != "carys90/180KosiLevi"
+            ) {
               childTypeSetPhosten += 1;
             }
           }
@@ -3166,7 +3200,10 @@ var createScene = function () {
       }
     }
     if (leftPosts[0].material.id == "selectedMat") {
-      if (fencesArr[0].type == "carys180/90") {
+      if (
+        fencesArr[0].type == "carys180/90" ||
+        fencesArr[0].type == "carys90/180KosiLevi"
+      ) {
         leftPosts[0].scaling.z = f;
         leftPosts[0].position.y = g;
       } else {
@@ -3336,7 +3373,8 @@ var createScene = function () {
                 fencePostMat,
                 addFenceSings,
                 preckes,
-                preckeMat
+                preckeMat,
+                sturmankersRuckseite
               );
               a.forEach((elm) => {
                 elm.material = fencePostMat;
@@ -3439,7 +3477,8 @@ var createScene = function () {
       fencePostMat,
       addFenceSings,
       preckes,
-      preckeMat
+      preckeMat,
+      sturmankersRuckseite
     );
     addFenceSings;
     if (activnesToFalse) {
@@ -4122,8 +4161,9 @@ var createScene = function () {
     // }
     //set post size for small parent post
     if (
-      fencesArr[fencesArr[a].parent].type == "carys180/90" ||
-      fencesArr[fencesArr[a].parent].type == "carys90/180KosiDesni"
+      fencesArr[a].parent != undefined &&
+      (fencesArr[fencesArr[a].parent].type == "carys180/90" ||
+        fencesArr[fencesArr[a].parent].type == "carys90/180KosiDesni")
     ) {
       let childTypee = 0;
       for (let i = 0; i < fencesArr[fencesArr[a].parent].children.length; i++) {

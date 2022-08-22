@@ -7,9 +7,13 @@ function addDefaultMaterial(
   fencePostMat,
   addFenceSings,
   preckes,
-  preckeMat
+  preckeMat,
+  sturmankersRuckseite
 ) {
   sturmankersVorderseite.forEach((elm) => {
+    elm.material = fencePostMat;
+  });
+  sturmankersRuckseite.forEach((elm) => {
     elm.material = fencePostMat;
   });
   //posts material
