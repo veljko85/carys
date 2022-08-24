@@ -39,17 +39,25 @@ function checkIntPos(
           fencesArr[intersectedPostsMain[i] - 1].status != "activeFence"
         ) {
           allPosts[intersectedPosts[i]].isVisible = true;
-          rightRoots[intersectedPosts[i] - 1].forEach((elm) => {
-            elm.isVisible = true;
-          });
+          if (
+            allPosts[intersectedPosts[i]].scaling.z == 1 ||
+            allPosts[intersectedPosts[i]].scaling.z == 0.524
+          )
+            rightRoots[intersectedPosts[i] - 1].forEach((elm) => {
+              elm.isVisible = true;
+            });
           intersectedPostsMain.splice(i, 1);
           intersectedPosts.splice(i, 1);
         }
       } else {
         allPosts[intersectedPosts[i]].isVisible = true;
-        rightRoots[intersectedPosts[i] - 1].forEach((elm) => {
-          elm.isVisible = true;
-        });
+        if (
+          allPosts[intersectedPosts[i]].scaling.z == 1 ||
+          allPosts[intersectedPosts[i]].scaling.z == 0.524
+        )
+          rightRoots[intersectedPosts[i] - 1].forEach((elm) => {
+            elm.isVisible = true;
+          });
         intersectedPostsMain.splice(i, 1);
         intersectedPosts.splice(i, 1);
       }
