@@ -2236,6 +2236,24 @@ var createScene = function () {
           rightPostCapClones[fencesArr[fenceId].parent].isVisible = false;
         }
       }
+      //for main post
+      if (fenceId > 0 && typeof activeFence == "boolean") {
+        if (type != "carys180/90" && type != "carys90/180KosiLevi") {
+          if (leftPosts[0].scaling.z < 0.6) {
+            leftPosts[0].scaling.z = 1;
+            leftPosts[0].position.y = 0.962;
+          }
+          if (leftPosts[0].scaling.z > 0.6 && leftPosts[0].scaling.z < 0.9) {
+            leftPosts[0].scaling.z = 1.2;
+            leftPosts[0].position.y = 0.7717;
+          }
+          if (leftPosts[0].scaling.z > 0.9 && leftPosts[0].scaling.z < 1) {
+            leftPosts[0].scaling.z = 1.475;
+            leftPosts[0].position.y = 0.511;
+          }
+          leftPostCaps[0].position.y = 1.913;
+        }
+      }
       //set Ground
       setGround();
       // //
@@ -3597,7 +3615,7 @@ var createScene = function () {
       }
 
       //parent
-      if (h > 0) {
+      if (h > 0 && fencesArr.parent != undefined) {
         if (
           fencesArr[fencesArr[h].parent].type == "carys180/90" ||
           fencesArr[fencesArr[h].parent].type == "carys90/180KosiDesni"
@@ -3641,8 +3659,19 @@ var createScene = function () {
           }
         }
       }
-
-      if (h == 0) {
+      //for main post
+      let mainPostChildType = 0;
+      for (let i = 0; i < fencesArr.length; i++) {
+        if (
+          fencesArr[i].status == "activeFence" &&
+          fencesArr[i].parent == undefined &&
+          fencesArr[i].type != "carys180/90" &&
+          fencesArr[i].type != "carys90/180KosiLevi"
+        ) {
+          mainPostChildType += 1;
+        }
+      }
+      if (mainPostChildType == 0) {
         if (leftPosts[0].scaling.z < 1.1) {
           leftPosts[0].scaling.z = 0.524;
           leftPosts[0].position.y = 0.504;
@@ -3656,9 +3685,6 @@ var createScene = function () {
           leftPosts[0].position.y = 0.053;
         }
         leftPostCaps[0].position.y = 1.002;
-        // leds[h].scaling.y = 0.524;
-        // leds[h].position.y = 0.5;
-        // leds[h].position.z = 0.001;
       }
     }
     if (d == "carys90/180KosiDesni") {
@@ -3691,24 +3717,6 @@ var createScene = function () {
         // ledsRight[h].position.z = 0.46;
         // ledsRight[h].position.y = 0.001;
       }
-      if (h == 0) {
-        if (leftPosts[0].scaling.z < 0.6) {
-          leftPosts[0].scaling.z = 1;
-          leftPosts[0].position.y = 0.962;
-        }
-        if (leftPosts[0].scaling.z > 0.6 && leftPosts[0].scaling.z < 0.9) {
-          leftPosts[0].scaling.z = 1.2;
-          leftPosts[0].position.y = 0.7717;
-        }
-        if (leftPosts[0].scaling.z > 0.9 && leftPosts[0].scaling.z < 1) {
-          leftPosts[0].scaling.z = 1.475;
-          leftPosts[0].position.y = 0.511;
-        }
-        leftPostCaps[0].position.y = 1.913;
-        // leds[h].scaling.y = 1;
-        // leds[h].position.y = 0.962;
-        // leds[h].position.z = 0.001;
-      }
       //set parent right post
       if (h > 0 && fencesArr[h].parent != undefined) {
         if (rightPosts[fencesArr[h].parent].scaling.z < 0.6) {
@@ -3735,6 +3743,26 @@ var createScene = function () {
         // ledsRight[fencesArr[h].parent].position.z = 0;
         // ledsRight[fencesArr[h].parent].position.y = 0.001;
       }
+      //for main post
+      if (
+        h > 0 &&
+        fencesArr[h].parent == undefined &&
+        fencesArr[h].status == "activeFence"
+      ) {
+        if (leftPosts[0].scaling.z < 0.6) {
+          leftPosts[0].scaling.z = 1;
+          leftPosts[0].position.y = 0.962;
+        }
+        if (leftPosts[0].scaling.z > 0.6 && leftPosts[0].scaling.z < 0.9) {
+          leftPosts[0].scaling.z = 1.2;
+          leftPosts[0].position.y = 0.7717;
+        }
+        if (leftPosts[0].scaling.z > 0.9 && leftPosts[0].scaling.z < 1) {
+          leftPosts[0].scaling.z = 1.475;
+          leftPosts[0].position.y = 0.511;
+        }
+        leftPostCaps[0].position.y = 1.913;
+      }
     }
     if (d == "carys90/180KosiLevi") {
       // ledsRight[h].scaling.z = 1;
@@ -3755,7 +3783,7 @@ var createScene = function () {
       rightPostCaps[h].isVisible = true;
       rightPostCapClones[h].isVisible = false;
       //parent
-      if (h > 0) {
+      if (h > 0 && fencesArr[h].parent != undefined) {
         if (
           fencesArr[fencesArr[h].parent].type == "carys180/90" ||
           fencesArr[fencesArr[h].parent].type == "carys90/180KosiDesni"
@@ -3800,7 +3828,19 @@ var createScene = function () {
         }
       }
 
-      if (h == 0) {
+      //for main post
+      let mainPostChildType = 0;
+      for (let i = 0; i < fencesArr.length; i++) {
+        if (
+          fencesArr[i].status == "activeFence" &&
+          fencesArr[i].parent == undefined &&
+          fencesArr[i].type != "carys180/90" &&
+          fencesArr[i].type != "carys90/180KosiLevi"
+        ) {
+          mainPostChildType += 1;
+        }
+      }
+      if (mainPostChildType == 0) {
         if (leftPosts[0].scaling.z < 1.1) {
           leftPosts[0].scaling.z = 0.524;
           leftPosts[0].position.y = 0.504;
@@ -3814,9 +3854,6 @@ var createScene = function () {
           leftPosts[0].position.y = 0.053;
         }
         leftPostCaps[0].position.y = 1.002;
-        // leds[h].scaling.y = 0.524;
-        // leds[h].position.y = 0.5;
-        // leds[h].position.z = 0.001;
       }
     }
     if (
@@ -3856,9 +3893,6 @@ var createScene = function () {
           leftPosts[0].position.y = 0.511;
         }
         leftPostCaps[0].position.y = 1.913;
-        // leds[h].scaling.y = 1;
-        // leds[h].position.y = 0.962;
-        // leds[h].position.z = 0.001;
       }
       //set parent right post
       if (h > 0 && fencesArr[h].parent != undefined) {
@@ -3885,6 +3919,26 @@ var createScene = function () {
         // ledsRight[fencesArr[h].parent].scaling.z = 1;
         // ledsRight[fencesArr[h].parent].position.z = 0;
         // ledsRight[fencesArr[h].parent].position.y = 0.001;
+      }
+      //for main post
+      if (
+        h > 0 &&
+        fencesArr[h].parent == undefined &&
+        fencesArr[h].status == "activeFence"
+      ) {
+        if (leftPosts[0].scaling.z < 0.6) {
+          leftPosts[0].scaling.z = 1;
+          leftPosts[0].position.y = 0.962;
+        }
+        if (leftPosts[0].scaling.z > 0.6 && leftPosts[0].scaling.z < 0.9) {
+          leftPosts[0].scaling.z = 1.2;
+          leftPosts[0].position.y = 0.7717;
+        }
+        if (leftPosts[0].scaling.z > 0.9 && leftPosts[0].scaling.z < 1) {
+          leftPosts[0].scaling.z = 1.475;
+          leftPosts[0].position.y = 0.511;
+        }
+        leftPostCaps[0].position.y = 1.913;
       }
     }
     //set ground size
@@ -4198,6 +4252,33 @@ var createScene = function () {
         // ledsRight[fencesArr[a].parent].position.z = 0.46;
         // ledsRight[fencesArr[a].parent].position.y = 0.001;
       }
+    }
+    //for main post
+    let mainPostChildType = 0;
+    for (let i = 0; i < fencesArr.length; i++) {
+      if (
+        fencesArr[i].status == "activeFence" &&
+        fencesArr[i].parent == undefined &&
+        fencesArr[i].type != "carys180/90" &&
+        fencesArr[i].type != "carys90/180KosiLevi"
+      ) {
+        mainPostChildType += 1;
+      }
+    }
+    if (mainPostChildType == 0) {
+      if (leftPosts[0].scaling.z < 1.1) {
+        leftPosts[0].scaling.z = 0.524;
+        leftPosts[0].position.y = 0.504;
+      }
+      if (leftPosts[0].scaling.z > 1 && leftPosts[0].scaling.z < 1.4) {
+        leftPosts[0].scaling.z = 0.724;
+        leftPosts[0].position.y = 0.3119;
+      }
+      if (leftPosts[0].scaling.z > 1.4) {
+        leftPosts[0].scaling.z = 0.999;
+        leftPosts[0].position.y = 0.053;
+      }
+      leftPostCaps[0].position.y = 1.002;
     }
     //
     fencesArr[a].parent = undefined;
