@@ -1,15 +1,8 @@
-:root {
-  --main-style-color: #3967ff;
-  --main-style-dark-color: #0f47ff;
-  --main-style-light-color: #aabeff;
-  --main-bg-color: #e6f0ff;
-  --main-font-color: #333333;
-}
 .tytul {
   margin-top: 20px;
 }
 .button {
-  background-color: var(--main-style-color);
+  background-color: var(--megaorange);
   border-radius: 5px;
 }
 .button:hover {
@@ -40,7 +33,7 @@ div {
 }
 
 .scRemove:hover {
-  background-color: var(--main-style-light-color);
+  background-color: var(--megaorangeLight);
   border: 1px solid #5a5655;
 }
 
@@ -56,7 +49,7 @@ div {
 }
 
 .cartngl {
-  background-color: var(--main-style-light-color);
+  background-color: var(--megaorangeLight);
 }
 
 .cartngl > div {
@@ -106,22 +99,22 @@ div.noborder {
 }
 
 .button.secondary {
-  background-color: var(--main-style-light-color);
+  background-color: var(--megaorangeLight);
   color: #000;
 }
 
 .button.secondary.sel {
   color: #000;
-  background: var(--main-style-color);
+  background: var(--megaorange);
   cursor: text;
   font-weight: bold;
 }
 .button.secondary:hover {
-  background: var(--main-style-color);
+  background: var(--megaorange);
   color: #000;
 }
 select.scSelCategory {
-  background: var(--main-style-light-color);
+  background: var(--megaorangeLight);
 }
 
 .scMenuBar.button-group {
@@ -187,8 +180,8 @@ select.scSelCategory {
   padding: 10px;
   color: #000;
   background: #f5f5f5;
-  border-top: 1px solid var(--main-style-light-color);
-  border-bottom: 1px solid var(--main-style-light-color);
+  border-top: 1px solid var(--megaorangeLight);
+  border-bottom: 1px solid var(--megaorangeLight);
   text-align: center;
 }
 
@@ -198,7 +191,7 @@ select.scSelCategory {
   left: 0;
   padding: 10px;
   color: #000;
-  background: var(--main-style-light-color);
+  background: var(--megaorangeLight);
   text-align: center;
   width: 50%;
   z-index: 98;

@@ -2544,7 +2544,7 @@ var createScene = function () {
   //   }
   //   addNewCombineFenceTitle.onclick = () => {
   //     if (!combineFencesOpen) {
-  //       // addNewCombineFenceTitle.style.color = "#3967ff";
+  //       // addNewCombineFenceTitle.style.color = "#faa41a";
   //       addNewCombineFenceTitle.children[1].innerHTML = "-";
   //       combineFenceContainer.style.height = "auto";
   //       combineFencesOpen = true;
@@ -2655,6 +2655,8 @@ var createScene = function () {
             singsRotate.forEach((elm) => {
               elm.isVisible = false;
             });
+            document.getElementsByClassName("accTitle")[0].innerHTML =
+              "einen Artikel hinzufügen";
           }
         )
       );
@@ -2712,6 +2714,8 @@ var createScene = function () {
             singsRotate.forEach((elm) => {
               elm.isVisible = false;
             });
+            document.getElementsByClassName("accTitle")[0].innerHTML =
+              "einen Artikel hinzufügen";
           }
         )
       );
@@ -2769,6 +2773,8 @@ var createScene = function () {
             singsRotate.forEach((elm) => {
               elm.isVisible = false;
             });
+            document.getElementsByClassName("accTitle")[0].innerHTML =
+              "einen Artikel hinzufügen";
           }
         )
       );
@@ -2826,6 +2832,8 @@ var createScene = function () {
             singsRotate.forEach((elm) => {
               elm.isVisible = false;
             });
+            document.getElementsByClassName("accTitle")[0].innerHTML =
+              "einen Artikel hinzufügen";
           }
         )
       );
@@ -2891,6 +2899,8 @@ var createScene = function () {
           singsRotate.forEach((elm) => {
             elm.isVisible = false;
           });
+          document.getElementsByClassName("accTitle")[0].innerHTML =
+            "einen Artikel hinzufügen";
         }
       )
     );
@@ -2942,6 +2952,8 @@ var createScene = function () {
           singsRotate.forEach((elm) => {
             elm.isVisible = false;
           });
+          document.getElementsByClassName("accTitle")[0].innerHTML =
+            "einen Artikel hinzufügen";
         }
       )
     );
@@ -4102,11 +4114,11 @@ var createScene = function () {
 
   //   //change gardo fence height
   //   let h76 = document.getElementById("h76");
-  //   h76.style.color = "#3967ff";
+  //   h76.style.color = "#faa41a";
   //   let h85 = document.getElementById("h85");
 
   //   function setPhostenAct(a, b) {
-  //     a.style.color = "#3967ff";
+  //     a.style.color = "#faa41a";
   //     b.style.color = "#000000";
   //     a.children[1].innerHTML = checkMark;
   //     b.children[1].innerHTML = "";
@@ -4355,6 +4367,7 @@ var createScene = function () {
       linkParts.push(prodIds[i] + ":" + prodValues[i] + ",");
     }
     linkParts = linkParts.join("");
+    linkParts = linkParts.slice(0, -1);
     link.href += "?add-to-cart=" + linkParts;
   };
 

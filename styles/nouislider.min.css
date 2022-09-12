@@ -100,7 +100,7 @@
   border-radius: 3px;
 }
 .noUi-connect {
-  background: var(--main-style-light-color);
+  background: var(--megaorangeLight);
 }
 .noUi-draggable {
   cursor: ew-resize;
@@ -111,7 +111,7 @@
 .noUi-handle {
   border: 1px solid #d9d9d9;
   border-radius: 3px;
-  background: var(--main-style-color);
+  background: var(--megaorange);
   cursor: pointer;
 }
 .noUi-handle:after,
