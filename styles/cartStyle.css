@@ -6,7 +6,7 @@
   border-radius: 5px;
 }
 .button:hover {
-  background-color: var(--main-style-dark-color);
+  background-color: var(--megaorangeLight);
 }
 div {
   line-height: 1.2;
